@@ -4,7 +4,7 @@ typedef struct node
 {
     int at, bt, ct, tt, wt, ft, prio, id;
 } process;
-void priority_p(process p[], int n);
+void priority_np(process p[], int n);
 int main()
 {
     int n;
@@ -28,7 +28,7 @@ int main()
     return 0;
 }
 
-void priority_p(process p[], int n)
+void priority_np(process p[], int n)
 {
     int tottt = 0, totwt = 0;
     float avgtt = 0, avgwt = 0;
