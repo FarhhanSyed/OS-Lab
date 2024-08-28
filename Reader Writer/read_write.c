@@ -3,8 +3,6 @@
 #include<pthread.h>
 #include<semaphore.h>
 
-# define buffersize 3
-
 sem_t wr;
 pthread_mutex_t mutex;
 int cnt=1;
@@ -54,24 +52,24 @@ int main(){
 
     pthread_t r[3],w[3];
 
-    int a[]={1,2,3};
+    int a[3]={1,2,3};
 
-        for(int i=0;i<buffersize;i++){
+        for(int i=0;i<3;i++){
 
         pthread_create(&w[i],NULL,writer,(void *)&a[i]);
     }
 
-    for(int i=0;i<buffersize;i++){
+    for(int i=0;i<3;i++){
 
         pthread_create(&r[i],NULL,reader,(void *)&a[i]);
     }
 
-    for(int i=0;i<buffersize;i++){
+    for(int i=0;i<3;i++){
 
         pthread_join(w[i],NULL);
     }
 
-    for(int i=0;i<buffersize;i++){
+    for(int i=0;i<3;i++){
 
         pthread_join(r[i],NULL);
     }
